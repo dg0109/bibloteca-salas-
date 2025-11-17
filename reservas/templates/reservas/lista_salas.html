@@ -1,0 +1,20 @@
+<h1>Listado de Salas</h1>
+
+<ul>
+  {% for sala in salas %}
+    <li>
+      <a href="{% url 'detalle_sala' sala.pk %}">
+        {{ sala.nombre }}
+      </a>
+      - Capacidad: {{ sala.capacidad }}
+      - Estado:
+      {% if sala.esta_reservada %}
+        <strong>Reservada</strong>
+      {% else %}
+        <strong>Disponible</strong>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'crear_reserva' %}">Crear una reserva</a>

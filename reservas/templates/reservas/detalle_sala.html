@@ -1,0 +1,14 @@
+<h1>Detalle de Sala</h1>
+
+<p><strong>Nombre:</strong> {{ sala.nombre }}</p>
+<p><strong>Capacidad:</strong> {{ sala.capacidad }}</p>
+<p><strong>Habilitada:</strong> {{ sala.habilitada }}</p>
+
+{% if reserva %}
+  <p><strong>Reservada desde:</strong> {{ reserva.hora_inicio }}</p>
+  <p><strong>Hasta:</strong> {{ reserva.hora_fin }}</p>
+{% else %}
+  <p><strong>Estado:</strong> Disponible</p>
+{% endif %}
+
+<a href="{% url 'lista_salas' %}">Volver</a>
