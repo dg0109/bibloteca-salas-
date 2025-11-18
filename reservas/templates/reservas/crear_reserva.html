@@ -1,0 +1,9 @@
+<h1>Crear Reserva</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Reservar por 2 horas</button>
+</form>
+
+<a href="{% url 'lista_salas' %}">Volver</a>
