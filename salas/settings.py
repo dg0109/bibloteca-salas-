@@ -14,12 +14,21 @@ from pathlib import Path
 import environ
 import os
 
+<<<<<<< HEAD
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
+=======
+env = environ.Env()
+environ.Env.read_env()
+
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+>>>>>>> 73cf1455692cedabfa0e74b92947f6e91141336e
 
 
 # Quick-start development settings - unsuitable for production
@@ -81,6 +90,7 @@ WSGI_APPLICATION = 'salas.wsgi.application'
 
 
 DATABASES = {
+<<<<<<< HEAD
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('PG_NAME'),
@@ -94,6 +104,12 @@ DATABASES = {
 
 
 
+=======
+    'default': env.db(default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}")
+}
+
+
+>>>>>>> 73cf1455692cedabfa0e74b92947f6e91141336e
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
